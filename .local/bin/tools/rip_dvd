@@ -1,0 +1,4 @@
+#!/bin/sh
+
+
+mplayer dvd://`lsdvd | grep Longest | awk {'print $3'}` -v -dumpstream -dumpfile $1

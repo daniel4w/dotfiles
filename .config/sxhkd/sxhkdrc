@@ -6,3 +6,6 @@ super + d
 	dmenu_run
 super + r
 	$TERMINAL -e $FILE
+super + e
+	$TERMINAL -e neomutt
+
