@@ -1,4 +1,10 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-[ ! -z "$1" ] && cp "$1" ~/.config/wall.png && notify-send -i "$HOME/.config/wall.png" "Change wallpaper."
-feh --bg-scale ~/.config/wall.png
+[ -z "$1" ] && exit
+
+file="$1"
+ext=${file##*.}
+
+rm ~/.config/wall.*
+cp "$1" ~/.config/wall.$ext && notify-send -i "$HOME/.config/wall.$ext" "Change wallpaper."
+feh --bg-scale ~/.config/wall.$ext
