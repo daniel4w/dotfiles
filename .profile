@@ -6,7 +6,7 @@ export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="firefox"
 export READER="zathura"
-export FILE="vifm"
+export FILE="vueberzug"
 
 # less/man colors
 export LESS=-R
