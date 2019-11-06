@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+find_up "$1" -iname "run_tests.sh" | xargs -I% sh -e %
