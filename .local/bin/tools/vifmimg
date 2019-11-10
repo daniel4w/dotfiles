@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-[ -z "$FIFO_UEBERZUG" } && exit
+[ -z "$FIFO_UEBERZUG" ] && exit
 
 readonly ID_PREVIEW="preview"
 
