@@ -11,7 +11,10 @@ let mapleader =","
 
 	call plug#begin('~/.config/nvim/plugged')
 	Plug 'bling/vim-airline'
+	Plug 'scrooloose/nerdtree'
 	Plug 'tpope/vim-surround'
+	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+	Plug 'junegunn/fzf.vim'
 	call plug#end()
 
 
@@ -37,18 +40,27 @@ let mapleader =","
 	set wildmode=longest,list,full
 
 " Navigate windows with 'Alt+{h,j,k,l}
-	:tnoremap <A-h> <C-\><C-N><C-w>h
-	:tnoremap <A-j> <C-\><C-N><C-w>j
-	:tnoremap <A-k> <C-\><C-N><C-w>k
-	:tnoremap <A-l> <C-\><C-N><C-w>l
-	:inoremap <A-h> <C-\><C-N><C-w>h
-	:inoremap <A-j> <C-\><C-N><C-w>j
-	:inoremap <A-k> <C-\><C-N><C-w>k
-	:inoremap <A-l> <C-\><C-N><C-w>l
-	:nnoremap <A-h> <C-w>h
-	:nnoremap <A-j> <C-w>j
-	:nnoremap <A-k> <C-w>k
-	:nnoremap <A-l> <C-w>l
+	:tnoremap <A-Left> <C-\><C-N><C-w>h
+	:tnoremap <A-Down> <C-\><C-N><C-w>j
+	:tnoremap <A-Up> <C-\><C-N><C-w>k
+	:tnoremap <A-Right> <C-\><C-N><C-w>l
+	:inoremap <A-Left> <C-\><C-N><C-w>h
+	:inoremap <A-Down> <C-\><C-N><C-w>j
+	:inoremap <A-Up> <C-\><C-N><C-w>k
+	:inoremap <A-Right> <C-\><C-N><C-w>l
+	:nnoremap <A-Left> <C-w><Left>h
+	:nnoremap <A-Down> <C-w>j
+	:nnoremap <A-Up> <C-w>k
+	:nnoremap <A-Right> <C-w>l
+
+" Resize windows
+	:nmap <A-S-Left> <C-w><
+	:nmap <A-S-Right> <C-w>>
+	:nmap <A-S-Up> <C-w>-
+	:nmap <A-S-Down> <C-w>+
+
+" Start NerdTree automatically
+	autocmd vimenter * NERDTree
 
 " Show syntax highlighting groups for word under cursor
 	nmap <C-S-P> :call <SID>SynStack()<CR>
