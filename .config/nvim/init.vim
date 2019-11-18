@@ -17,9 +17,8 @@ let mapleader =","
 	Plug 'junegunn/fzf.vim'
 	call plug#end()
 
-
 " Basics
-	set bg=light
+	set bg=dark
 	set go=a
 	set mouse=a
 	set nohlsearch
@@ -35,32 +34,40 @@ let mapleader =","
 	set shiftwidth=4
 	colorscheme vimbrains
 	set splitbelow splitright
+	set termguicolors
 
 " Enable autocompletion
 	set wildmode=longest,list,full
 
 " Navigate windows with 'Alt+{h,j,k,l}
-	:tnoremap <A-Left> <C-\><C-N><C-w>h
-	:tnoremap <A-Down> <C-\><C-N><C-w>j
-	:tnoremap <A-Up> <C-\><C-N><C-w>k
-	:tnoremap <A-Right> <C-\><C-N><C-w>l
-	:inoremap <A-Left> <C-\><C-N><C-w>h
-	:inoremap <A-Down> <C-\><C-N><C-w>j
-	:inoremap <A-Up> <C-\><C-N><C-w>k
-	:inoremap <A-Right> <C-\><C-N><C-w>l
-	:nnoremap <A-Left> <C-w><Left>h
-	:nnoremap <A-Down> <C-w>j
-	:nnoremap <A-Up> <C-w>k
-	:nnoremap <A-Right> <C-w>l
+	tnoremap <A-Left> <C-\><C-N><C-w>h
+	tnoremap <A-Down> <C-\><C-N><C-w>j
+	tnoremap <A-Up> <C-\><C-N><C-w>k
+	tnoremap <A-Right> <C-\><C-N><C-w>l
+	inoremap <A-Left> <C-\><C-N><C-w>h
+	inoremap <A-Down> <C-\><C-N><C-w>j
+	inoremap <A-Up> <C-\><C-N><C-w>k
+	inoremap <A-Right> <C-\><C-N><C-w>l
+	nnoremap <A-Left> <C-w><Left>h
+	nnoremap <A-Down> <C-w>j
+	nnoremap <A-Up> <C-w>k
+	nnoremap <A-Right> <C-w>l
 
 " Resize windows
-	:nmap <A-S-Left> <C-w><
-	:nmap <A-S-Right> <C-w>>
-	:nmap <A-S-Up> <C-w>-
-	:nmap <A-S-Down> <C-w>+
+	nmap <C-Left> <C-w>>
+	nmap <C-Right> <C-w><
+	nmap <C-Up> <C-w>-
+	nmap <C-Down> <C-w>+
+
+" Start terminal window in vsplit
+	nmap <C-T> :vsp term://zsh<CR>
+
 
 " Start NerdTree automatically
-	autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
+
+" Toogle NERDTree
+	nmap <A-Enter> :NERDTreeToggle<CR>
 
 " Show syntax highlighting groups for word under cursor
 	nmap <C-S-P> :call <SID>SynStack()<CR>
@@ -75,7 +82,7 @@ let mapleader =","
 	nmap <C-d> :vsp term://run_itests <C-R>=expand('%:p:h')<cr><cr>
 
 " Use ESC in terminal mode
-    :tnoremap <Esc> <C-\><C-n>
+    tnoremap <Esc> <C-\><C-n>
 
 " Update init.vim after editing
 	autocmd BufWritePost ~/.config/nvim/init.vim :so $MYVIMRC
